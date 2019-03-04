@@ -1,10 +1,13 @@
 package com.example.gregor.recylerview;
 
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -27,6 +30,19 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Started");
 
         initProgressBar();
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lInfo.add("Progressbar #"+(lInfo.size()+1));
+                lValues.add(50);
+                Snackbar.make(view, "New Countdown added.", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+                initRecyclerView();
+            }
+        });
+
     }
     private void initProgressBar(){
         Log.d(TAG, "initProgressBar: init progress bar");
@@ -35,18 +51,6 @@ public class MainActivity extends AppCompatActivity {
 
         lInfo.add("Progressbar #"+(lInfo.size()+1));
         lValues.add(20);
-
-        lInfo.add("Progressbar #"+(lInfo.size()+1));
-        lValues.add(70);
-
-        lInfo.add("Progressbar #"+(lInfo.size()+1));
-        lValues.add(60);
-
-        lInfo.add("Progressbar #"+(lInfo.size()+1));
-        lValues.add(90);
-
-        lInfo.add("Progressbar #"+(lInfo.size()+1));
-        lValues.add(30);
 
         initRecyclerView();
     }
