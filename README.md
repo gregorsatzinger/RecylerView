@@ -1,2 +1,2 @@
 # RecylerView
-Sample project using RecylerView (+CardView) to render different indepentant stopwatches
+Sample project using RecylerView (+CardView) to render different independent stopwatches
